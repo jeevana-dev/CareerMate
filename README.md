@@ -43,7 +43,7 @@ CareerMate is a web-based career guidance platform designed to help students mak
 
 ## 🌐 Live Demo
 
-👉 https://careermate-create.github.io/devajee/  
+👉 https://jeevana-dev.github.io/CareerMate/
 
 ---
 
