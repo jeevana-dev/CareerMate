@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerMate - Grade 10 Quiz</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+    }
+    header {
+      background: rgba(40, 44, 52, 0.85);
+      color: #fff;
+      padding: 28px 20px 20px 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      border-bottom: 1.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      border-radius: 0 0 32px 32px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(8px);
+      animation: headerPop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    @keyframes headerPop {
+      0% { transform: scale(0.8) translateY(-40px); opacity: 0; }
+      60% { transform: scale(1.05) translateY(10px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 32px 20px 24px 20px;
+      background: rgba(44, 48, 58, 0.85);
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      border: 1.5px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(6px);
+      animation: animate__fadeInUp 1.2s;
+    }
+    .question {
+      margin-bottom: 28px;
+      padding: 18px 18px 12px 18px;
+      background: rgba(60, 64, 75, 0.85);
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(99, 102, 241, 0.08);
+      border-left: 4px solid #6366f1;
+      animation: animate__fadeInLeft 0.8s;
+    }
+    .question p {
+      font-size: 1.13em;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #a5b4fc;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .question label {
+      font-size: 1em;
+      color: #c7d0e0;
+      margin-bottom: 4px;
+      cursor: pointer;
+    }
+    .question input[type="radio"] {
+      accent-color: #6366f1;
+      margin-right: 6px;
+    }
+    button {
+      background: linear-gradient(to right, #6366f1, #a5b4fc);
+      color: #232526;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+      margin-top: 18px;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+      animation: animate__pulse 2s infinite;
+    }
+    button:hover {
+      background: linear-gradient(to right, #a5b4fc, #6366f1);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header class="animate__animated animate__fadeInDown">
+    <i class="bi bi-stars display-5 text-primary animate__animated animate__tada animate__delay-1s"></i>
+    <span class="ms-2">CareerMate - Grade 10 Career Quiz</span>
+  </header>
+  <div class="container">
+    <form id="quizForm">
+      <div class="question animate__animated animate__fadeInLeft animate__delay-1s">
+        <p><i class="bi bi-book-half text-info"></i> 1. Which subject do you enjoy most?</p>
+        <label><input type="radio" name="q1" value="science"> Science</label><br>
+        <label><input type="radio" name="q1" value="computer"> Computer</label><br>
+        <label><input type="radio" name="q1" value="commerce"> Commerce</label>
+      </div>
+      <div class="question animate__animated animate__fadeInLeft animate__delay-2s">
+        <p><i class="bi bi-lightbulb-fill text-warning"></i> 2. What kind of career excites you?</p>
+        <label><input type="radio" name="q2" value="science"> Doctor/Scientist</label><br>
+        <label><input type="radio" name="q2" value="computer"> Software Engineer</label><br>
+        <label><input type="radio" name="q2" value="commerce"> Business/Finance</label>
+      </div>
+      <div class="question animate__animated animate__fadeInLeft animate__delay-3s">
+        <p><i class="bi bi-controller text-success"></i> 3. Which activity do you prefer?</p>
+        <label><input type="radio" name="q3" value="science"> Doing experiments</label><br>
+        <label><input type="radio" name="q3" value="computer"> Coding or gaming</label><br>
+        <label><input type="radio" name="q3" value="commerce"> Managing money/events</label>
+      </div>
+      <div class="question animate__animated animate__fadeInLeft animate__delay-4s">
+        <p><i class="bi bi-people-fill text-primary"></i> 4. What do your friends usually ask your help for?</p>
+        <label><input type="radio" name="q4" value="science"> Biology/Chemistry doubts</label><br>
+        <label><input type="radio" name="q4" value="computer"> Computer/Maths problems</label><br>
+        <label><input type="radio" name="q4" value="commerce"> Accounts/Management</label>
+      </div>
+      <div class="question animate__animated animate__fadeInLeft animate__delay-5s">
+        <p><i class="bi bi-journal-richtext text-danger"></i> 5. Which magazine/article interests you more?</p>
+        <label><input type="radio" name="q5" value="science"> Science/Medical research</label><br>
+        <label><input type="radio" name="q5" value="computer"> Technology/AI</label><br>
+        <label><input type="radio" name="q5" value="commerce"> Business/Markets</label>
+      </div>
+      <button type="submit">See My Stream →</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const answers = [...document.querySelectorAll("input[type=radio]:checked")].map(a => a.value);
+      if (answers.length < 5) { alert("Please answer all questions."); return; }
+      
+      // Count answers
+      let scores = { science: 0, computer: 0, commerce: 0 };
+      answers.forEach(ans => scores[ans]++);
+
+      // Decide stream
+      let selected = Object.keys(scores).reduce((a, b) => scores[a] > scores[b] ? a : b);
+
+      // Redirect
+      window.location.href = "courses.html?stream=" + selected;
+    });
+  </script>
+</body>
+</html>

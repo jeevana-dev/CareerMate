@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CareerMate - Companies</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+      margin: 0;
+    }
+    header {
+      background: rgba(40, 44, 52, 0.85);
+      color: #fff;
+      text-align: center;
+      padding: 32px 20px 24px 20px;
+      font-size: 2em;
+      font-weight: bold;
+      border-bottom: 1.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      border-radius: 0 0 32px 32px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(8px);
+      animation: headerPop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    @keyframes headerPop {
+      0% { transform: scale(0.8) translateY(-40px); opacity: 0; }
+      60% { transform: scale(1.05) translateY(10px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .card {
+      background: rgba(44, 48, 58, 0.85);
+      padding: 28px 18px 18px 18px;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      border: 2.5px solid #6366f1;
+      color: #e0e7ff;
+      animation: animate__fadeInUp 1.2s;
+      transition: box-shadow 0.2s, border 0.2s;
+      text-align: left;
+    }
+    .card h3 {
+      color: #a5b4fc;
+      margin-bottom: 10px;
+      font-size: 1.25em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card p {
+      color: #c7d0e0;
+      margin-bottom: 8px;
+    }
+    .card a {
+      color: #a5b4fc;
+      text-decoration: underline;
+      font-size: 0.98em;
+      word-break: break-all;
+    }
+    .card a:hover {
+      color: #fff;
+    }
+    button {
+      margin-top: 10px;
+      padding: 12px 32px;
+      background: linear-gradient(to right, #6366f1, #a5b4fc);
+      border: none;
+      border-radius: 20px;
+      color: #232526;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+      animation: animate__pulse 2s infinite;
+      transition: background 0.3s, color 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(to right, #a5b4fc, #6366f1);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header class="animate__animated animate__fadeInDown">
+    <i class="bi bi-building text-info animate__animated animate__tada animate__delay-1s"></i>
+    <span class="ms-2">Companies You Can Apply To</span>
+  </header>
+  <div class="container animate__animated animate__fadeInUp" id="companyList"></div>
+
+<script>
+const companies = {
+  tech: [
+    {name:"TCS", role:"Software Engineer", salary:"₹6 LPA", location:"Chennai", culture:"Flexible work", website:"www.tcs.com"},
+    {name:"Infosys", role:"Data Analyst", salary:"₹5 LPA", location:"Bangalore", culture:"Learning focus", website:"www.infosys.com"},
+    {name:"HCL", role:"AI Specialist", salary:"₹7 LPA", location:"Noida", culture:"Growth oriented", website:"www.hcl.com"}
+  ],
+  commerce: [
+    {name:"Deloitte", role:"Accountant", salary:"₹6 LPA", location:"Mumbai", culture:"Corporate", website:"www.deloitte.com"},
+    {name:"KPMG", role:"Business Analyst", salary:"₹7 LPA", location:"Delhi", culture:"Professional", website:"www.kpmg.com"},
+    {name:"EY", role:"Financial Advisor", salary:"₹8 LPA", location:"Bangalore", culture:"Global exposure", website:"www.ey.com"}
+  ],
+  science: [
+    {name:"Biocon", role:"Research Assistant", salary:"₹4 LPA", location:"Bangalore", culture:"Research-driven", website:"www.biocon.com"},
+    {name:"DRDO", role:"Lab Scientist", salary:"₹7 LPA", location:"Hyderabad", culture:"National Service", website:"www.drdo.gov.in"},
+    {name:"Apollo", role:"Healthcare Technician", salary:"₹5 LPA", location:"Chennai", culture:"Healthcare", website:"www.apollohospitals.com"}
+  ],
+  creative: [
+    {name:"Adobe", role:"Graphic Designer", salary:"₹6 LPA", location:"Remote", culture:"Creative", website:"www.adobe.com"},
+    {name:"Figma", role:"UI/UX Designer", salary:"₹8 LPA", location:"Remote", culture:"Design-first", website:"www.figma.com"},
+    {name:"Canva", role:"Content Creator", salary:"₹5 LPA", location:"Bangalore", culture:"Young team", website:"www.canva.com"}
+  ],
+  management: [
+    {name:"Amazon", role:"HR Manager", salary:"₹9 LPA", location:"Hyderabad", culture:"Fast paced", website:"www.amazon.in"},
+    {name:"Flipkart", role:"Operations Manager", salary:"₹8 LPA", location:"Bangalore", culture:"Teamwork", website:"www.flipkart.com"},
+    {name:"DHL", role:"Marketing Manager", salary:"₹7 LPA", location:"Mumbai", culture:"Global exposure", website:"www.dhl.com"}
+  ]
+};
+let stream=localStorage.getItem("careerStream")||"tech";
+let chosen=localStorage.getItem("chosenJob");
+let container=document.getElementById("companyList");
+const icons = {
+  tech: '<i class="bi bi-cpu text-success"></i>',
+  commerce: '<i class="bi bi-bar-chart-line-fill text-warning"></i>',
+  science: '<i class="bi bi-flask text-info"></i>',
+  creative: '<i class="bi bi-palette-fill text-danger"></i>',
+  management: '<i class="bi bi-people-fill text-primary"></i>'
+};
+companies[stream].forEach((c, i) => {
+  let div = document.createElement("div");
+  div.className = "card animate__animated animate__fadeInUp animate__delay-" + (i+1) + "s";
+  div.innerHTML = `<h3>${icons[stream] || ''} ${c.name}</h3>
+    <p><b>Role:</b> ${c.role}</p>
+    <p><b>Salary:</b> ${c.salary}</p>
+    <p><b>Location:</b> ${c.location}</p>
+    <p><b>Culture:</b> ${c.culture}</p>
+    <a href='https://${c.website}' target='_blank'>${c.website}</a><br>
+    <button onclick=\"applyCompany('${c.name}')\" class='animate__animated animate__pulse animate__infinite'>Apply <i class='bi bi-arrow-right-circle-fill'></i></button>`;
+  container.appendChild(div);
+});
+function applyCompany(company){
+  localStorage.setItem("appliedCompany", company);
+  window.location.href="career-step4.html";
+}
+</script>
+</body>
+</html>

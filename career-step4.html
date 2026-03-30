@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CareerMate - Resume & Confirmation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body{font-family:'Segoe UI', 'Roboto', Arial, sans-serif;background:linear-gradient(135deg, #232946 0%, #3a3f5a 100%);margin:0;}
+  .glass-header {background: linear-gradient(90deg,#6366f1,#3b82f6); color: #fff; padding: 32px 0 24px 0; text-align: center; font-size: 2.2rem; font-weight: bold; letter-spacing: 1px; border-bottom: 2px solid #23294644; box-shadow: 0 4px 24px #6366f140; margin-bottom: 0;}
+    .glass-card { background: rgba(44, 48, 58, 0.85); border-radius: 24px; box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18); border: 2.5px solid #6366f1; max-width: 520px; width: 95%; margin: 40px auto 0 auto; padding: 2.5rem 2rem; display: flex; flex-direction: column; align-items: center; }
+  h2{color:#a5b4fc;margin-bottom:15px;}
+    p{font-size:1.1em; color: #e0e7ef;}
+    label{display:block;margin-bottom:10px; color: #e0e7ef;}
+    input, textarea {background:rgba(57,62,84,0.85);color:#fff;border:1.5px solid #6366f1;border-radius:8px;padding:8px;margin-top:4px;width:100%;}
+  input:focus, textarea:focus {outline:2px solid #6366f1;}
+    .option-box {
+      display: flex;
+      gap: 24px;
+      margin: 24px 0 0 0;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    .option {
+      flex: 1 1 220px;
+      min-width: 180px;
+      max-width: 320px;
+      padding: 20px 0;
+      border: 2.5px solid #6366f1;
+      border-radius: 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s, box-shadow 0.2s;
+      background: rgba(57, 62, 84, 0.95);
+      color: #a5b4fc;
+      font-size: 1.15em;
+      font-weight: 500;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+      margin-bottom: 10px;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      white-space: normal;
+      outline: none;
+      margin-top: 0;
+    }
+  .option:active, .option:focus { box-shadow: 0 0 0 3px #6366f1cc; border-color: #6366f1; }
+    .option:hover {
+      background: rgba(99, 102, 241, 0.18);
+      color: #fff;
+      transform: translateY(-2px) scale(1.03);
+    }
+    .form-control { background:rgba(57,62,84,0.85); color:#fff; border:1.5px solid #6366f1; border-radius:8px; padding:8px; margin-top:4px; width:100%; }
+  .form-control:focus { outline:2px solid #6366f1; }
+    @media (max-width: 600px) {
+      .glass-card { padding: 1.2rem 0.5rem; }
+      .option-box { flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="glass-header animate__animated animate__fadeInDown"><h1>Submit Your Resume</h1></header>
+  <div class="glass-card animate__animated animate__fadeInUp">
+  <h2 id="companyMsg" class="mb-3" style="color: #a5b4fc; font-weight: bold; font-size: 2rem; letter-spacing: 1px; text-shadow: 0 2px 8px #23294699;"></h2>
+
+    <!-- Step 1: Ask user -->
+    <div id="choiceSection">
+      <p class="mb-4" style="color: #e0e7ef; font-size: 1.1em;">Do you already have a resume?</p>
+      <div class="option-box">
+        <button class="option animate__animated animate__pulse animate__delay-1s" onclick="showUpload()">
+          <i class="bi bi-folder2-open me-2" style="color: #ffd700; font-size: 1.5em;"></i> Upload Resume
+        </button>
+        <button class="option animate__animated animate__pulse animate__delay-1s" onclick="showCreate()">
+          <i class="bi bi-file-earmark-text me-2" style="color: #a5b4fc; font-size: 1.5em;"></i> Create Resume
+        </button>
+      </div>
+    </div>
+
+    <!-- Upload Resume -->
+    <div id="uploadSection" style="display:none;">
+      <h3 style="color:#a5b4fc;">Upload Your Resume (PDF/DOC)</h3>
+      <input type="file" accept=".pdf,.doc,.docx" class="form-control mb-3">
+      <button class="option" onclick="confirmUpload()">Submit</button>
+    </div>
+
+    <!-- Create Resume -->
+    <div id="createSection" style="display:none;">
+      <h3 style="color:#a5b4fc;">Create Resume</h3>
+      <form id="resumeForm" onsubmit="return submitResume()">
+        <label>Name: <input type="text" required class="form-control mb-2"></label>
+        <label>Email: <input type="email" required class="form-control mb-2"></label>
+        <label>Education: <textarea required class="form-control mb-2"></textarea></label>
+        <label>Skills: <textarea required class="form-control mb-2"></textarea></label>
+        <label>Achievements: <textarea class="form-control mb-2"></textarea></label>
+        <button type="submit" class="option">Generate Resume</button>
+      </form>
+    </div>
+
+    <!-- Confirmation -->
+    <div id="confirmation" style="display:none;">
+      <h3 style="color:#a5b4fc;">✅ Resume Submitted Successfully!</h3>
+      <p id="confirmText" style="color:#e0e7ef;"></p>
+    </div>
+  </div>
+
+<script>
+let company=localStorage.getItem("appliedCompany")||"the company";
+document.getElementById("companyMsg").innerText="Applying to "+company;
+
+function showUpload(){
+  document.getElementById("choiceSection").style.display="none";
+  document.getElementById("uploadSection").style.display="block";
+}
+function showCreate(){
+  document.getElementById("choiceSection").style.display="none";
+  document.getElementById("createSection").style.display="block";
+}
+
+function confirmUpload(){
+  document.getElementById("uploadSection").style.display="none";
+  document.getElementById("confirmation").style.display="block";
+  document.getElementById("confirmText").innerText="We have sent your uploaded resume to "+company+". They will contact you soon!";
+}
+
+function submitResume(){
+  document.getElementById("createSection").style.display="none";
+  document.getElementById("confirmation").style.display="block";
+  document.getElementById("confirmText").innerText="Your generated resume has been sent to "+company+". They will contact you soon!";
+  return false;
+}
+</script>
+</body>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Career Stream</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: rgba(40, 44, 52, 0.85);
+      color: #fff;
+      padding: 32px 20px 24px 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      border-bottom: 1.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      border-radius: 0 0 32px 32px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(8px);
+      animation: headerPop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    @keyframes headerPop {
+      0% { transform: scale(0.8) translateY(-40px); opacity: 0; }
+      60% { transform: scale(1.05) translateY(10px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 36px 28px 32px 28px;
+      text-align: center;
+    }
+    .stream-box {
+      background: rgba(44, 48, 58, 0.85);
+      padding: 32px 22px 22px 22px;
+      margin: 28px 0;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      border: 2.5px solid #6366f1;
+      backdrop-filter: blur(6px);
+      animation: animate__fadeInUp 1.2s;
+      transition: box-shadow 0.2s, border 0.2s;
+      cursor: pointer;
+    }
+    .stream-box:active, .stream-box.clicked {
+      box-shadow: 0 0 0 4px #a5b4fc, 0 8px 32px rgba(0,0,0,0.18);
+      border: 3.5px solid #a5b4fc;
+    }
+    .stream-box h2 {
+      color: #fff;
+      font-size: 2em;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-shadow: 0 2px 8px #6366f1;
+    }
+    .stream-box p {
+      color: #e0e7ff;
+    }
+    .stream-box p {
+      color: #c7d0e0;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+    video {
+      width: 100%;
+      max-width: 600px;
+      margin-top: 24px;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(99, 102, 241, 0.08);
+      background: #181a20;
+      animation: animate__fadeIn animate__delay-2s 1s;
+    }
+  </style>
+</head>
+<body>
+  <header class="animate__animated animate__fadeInDown">
+    <i class="bi bi-stars display-5 text-primary animate__animated animate__tada animate__delay-1s"></i>
+    <span class="ms-2">CareerMate - Your Stream</span>
+  </header>
+  <div class="container">
+  <div id="result" class="stream-box animate__animated animate__fadeInUp" tabindex="0"></div>
+    <video id="careerVideo" controls>
+      <source id="videoSrc" src="" type="video/mp4">
+      Your browser does not support video.
+    </video>
+  </div>
+
+  <script>
+    // Get stream from URL
+    const params = new URLSearchParams(window.location.search);
+    const stream = params.get("stream");
+
+    // Stream descriptions
+    const descriptions = {
+      science: [
+        "You have a curious mind that loves exploring how the world works.",
+        "Science opens doors to careers like doctor, scientist, or engineer.",
+        "Your passion for discovery can shape the future."
+      ],
+      computer: [
+        "You are logical and love solving problems with technology.",
+        "Computers, coding, and innovation excite you the most.",
+        "Your skills can build the digital world of tomorrow."
+      ],
+      commerce: [
+        "You have a sharp mind for numbers and management.",
+        "Commerce opens doors to business, finance, and entrepreneurship.",
+        "Your talent can lead you to build and manage big ventures."
+      ]
+    };
+
+    // Video mapping
+    const videos = {
+      science: "videos/science.mp4",
+      computer: "videos/computerrr.mp4",
+      commerce: "videos/commmerce.mp4"
+    };
+
+    // Show text
+    if (stream && descriptions[stream]) {
+      let icon = '';
+      if (stream === 'science') icon = '<i class="bi bi-flask text-info"></i>';
+      else if (stream === 'computer') icon = '<i class="bi bi-cpu text-success"></i>';
+      else if (stream === 'commerce') icon = '<i class="bi bi-bar-chart-line-fill text-warning"></i>';
+      document.getElementById("result").innerHTML =
+        `<h2>${icon} You are a ${stream.toUpperCase()} Student!</h2>` +
+        descriptions[stream].map(line => `<p>${line}</p>`).join("");
+      document.getElementById("videoSrc").src = videos[stream];
+      document.getElementById("careerVideo").load();
+    } else {
+      document.getElementById("result").innerHTML = "<p>No stream selected.</p>";
+    }
+
+    // Add click effect to stream box
+    const streamBox = document.getElementById('result');
+    streamBox.addEventListener('mousedown', function() {
+      streamBox.classList.add('clicked');
+    });
+    streamBox.addEventListener('mouseup', function() {
+      setTimeout(() => streamBox.classList.remove('clicked'), 150);
+    });
+    streamBox.addEventListener('mouseleave', function() {
+      streamBox.classList.remove('clicked');
+    });
+  </script>
+</body>
+</html>

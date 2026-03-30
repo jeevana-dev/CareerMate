@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Step 3 - Eligible Colleges</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h2 {
+      color: #a5b4fc;
+      margin-top: 32px;
+      margin-bottom: 10px;
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      animation: animate__fadeInDown 1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .map-container {
+      position: relative;
+      display: inline-block;
+      margin: 20px 0;
+      background: rgba(44, 48, 58, 0.85);
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      border: 2.5px solid #6366f1;
+      padding: 16px 8px 8px 8px;
+      animation: animate__fadeInUp 1.2s;
+    }
+    .map-container img {
+      width: 700px;
+      border: 2px solid #6366f1;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(99, 102, 241, 0.08);
+      background: #181a20;
+    }
+    .pin {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: #6366f1;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      cursor: pointer;
+      box-shadow: 0 0 8px #a5b4fc;
+      border: 2px solid #fff;
+      z-index: 2;
+      transition: box-shadow 0.2s;
+    }
+    .pin::after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background: #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 6px;
+      left: 6px;
+    }
+    .pin:hover::before {
+      content: attr(data-name);
+      position: absolute;
+      top: -32px;
+      left: -10px;
+      background: #232526;
+      color: #a5b4fc;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px #6366f1;
+      z-index: 10;
+    }
+    .college-info {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+    .card {
+      background: rgba(44, 48, 58, 0.85);
+      border: 2.5px solid #6366f1;
+      border-radius: 24px;
+      padding: 22px 18px 18px 18px;
+      width: 300px;
+      text-align: left;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      color: #e0e7ff;
+      animation: animate__fadeInUp 1.2s;
+      transition: box-shadow 0.2s, border 0.2s;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      color: #a5b4fc;
+      font-size: 1.25em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card ul {
+      padding-left: 18px;
+    }
+    .card ul li {
+      color: #c7d0e0;
+      margin-bottom: 4px;
+    }
+    button, a > button {
+      margin-top: 25px;
+      padding: 12px 32px;
+      background: linear-gradient(to right, #6366f1, #a5b4fc);
+      border: none;
+      color: #232526;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+      transition: background 0.3s, color 0.3s;
+      animation: animate__pulse 2s infinite;
+    }
+    button:hover, a > button:hover {
+      background: linear-gradient(to right, #a5b4fc, #6366f1);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h2><i class="bi bi-geo-alt-fill text-warning animate__animated animate__tada animate__delay-1s"></i> Eligible Colleges on Map</h2>
+  <p>Hover on the pins <i class="bi bi-geo-alt-fill text-primary"></i> to see the college names</p>
+
+  <div class="map-container">
+    <img src="tamilnadu-map.jpg" alt="Tamil Nadu Map">
+    <!-- Pins with hover tooltip -->
+  <div class="pin animate__animated animate__bounceIn animate__delay-1s" style="top: 120px; left: 350px;" data-name="Anna University, Chennai"></div>
+  <div class="pin animate__animated animate__bounceIn animate__delay-2s" style="top: 250px; left: 200px;" data-name="PSG Tech, Coimbatore"></div>
+  <div class="pin animate__animated animate__bounceIn animate__delay-3s" style="top: 300px; left: 280px;" data-name="NIT Trichy"></div>
+  </div>
+
+  <div class="college-info">
+    <div class="card animate__animated animate__fadeInUp animate__delay-1s">
+      <h3><i class="bi bi-building text-info"></i> Anna University, Chennai</h3>
+      <ul>
+        <li>NAAC A+ Accreditation</li>
+        <li>Strong IT & CS programs</li>
+        <li>Top recruiters: TCS, Infosys</li>
+        <li>Modern Research Labs</li>
+        <li>Affordable fee structure</li>
+        <li>Cutoff ~ 190+</li>
+        <li>Excellent campus life</li>
+      </ul>
+    </div>
+    <div class="card animate__animated animate__fadeInUp animate__delay-2s">
+      <h3><i class="bi bi-building text-info"></i> PSG Tech, Coimbatore</h3>
+      <ul>
+        <li>AICTE Approved</li>
+        <li>High Placement Records</li>
+        <li>Industry tie-ups</li>
+        <li>Fee: ₹80k - ₹1.2L/year</li>
+        <li>Cutoff ~ 185+</li>
+        <li>Focus on entrepreneurship</li>
+        <li>Vibrant student community</li>
+      </ul>
+    </div>
+    <div class="card animate__animated animate__fadeInUp animate__delay-3s">
+      <h3><i class="bi bi-building text-info"></i> NIT Trichy</h3>
+      <ul>
+        <li>NIRF Top 10 Rank</li>
+        <li>National importance institute</li>
+        <li>Fee: ₹70k - ₹90k/year</li>
+        <li>Cutoff ~ 195+</li>
+        <li>Incubation & Start-up support</li>
+        <li>Strong alumni network</li>
+        <li>Beautiful campus</li>
+      </ul>
+    </div>
+  </div>
+
+  <a href="grade12-step4.html"><button class="animate__animated animate__pulse animate__infinite">Next <i class="bi bi-arrow-right-circle-fill"></i> Alumni Contacts</button></a>
+</body>
+</html>

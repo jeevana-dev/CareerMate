@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CareerMate - Career Quiz</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: rgba(40, 44, 52, 0.85);
+      color: #fff;
+      padding: 32px 20px 24px 20px;
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      border-bottom: 1.5px solid rgba(255,255,255,0.08);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      border-radius: 0 0 32px 32px;
+      margin-bottom: 32px;
+      backdrop-filter: blur(8px);
+      animation: headerPop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    @keyframes headerPop {
+      0% { transform: scale(0.8) translateY(-40px); opacity: 0; }
+      60% { transform: scale(1.05) translateY(10px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: rgba(44, 48, 58, 0.85);
+      padding: 36px 28px 32px 28px;
+      border-radius: 32px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      border: 2.5px solid #6366f1;
+      backdrop-filter: blur(6px);
+      animation: animate__fadeInUp 1.2s;
+    }
+    h2 {
+      color: #a5b4fc;
+      margin-bottom: 24px;
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      animation: animate__fadeInDown 1s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .question {
+      margin-bottom: 28px;
+      padding: 18px 18px 12px 18px;
+      background: rgba(60, 64, 75, 0.85);
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(99, 102, 241, 0.08);
+      border-left: 4px solid #6366f1;
+      animation: animate__fadeInLeft 0.8s;
+    }
+    .question p {
+      font-size: 1.13em;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #a5b4fc;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .question label {
+      font-size: 1em;
+      color: #c7d0e0;
+      margin-bottom: 4px;
+      cursor: pointer;
+    }
+    .question input[type="radio"] {
+      accent-color: #6366f1;
+      margin-right: 6px;
+    }
+    button {
+      background: linear-gradient(to right, #6366f1, #a5b4fc);
+      color: #232526;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: bold;
+      padding: 12px 32px;
+      margin-top: 18px;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+      animation: animate__pulse 2s infinite;
+      transition: background 0.3s, color 0.3s;
+    }
+    button:hover {
+      background: linear-gradient(to right, #a5b4fc, #6366f1);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header class="animate__animated animate__fadeInDown">
+    <i class="bi bi-stars display-5 text-primary animate__animated animate__tada animate__delay-1s"></i>
+    <span class="ms-2">CareerMate – Career Quiz</span>
+  </header>
+  <div class="container animate__animated animate__fadeInUp">
+    <h2><i class="bi bi-clipboard-check-fill text-info"></i> Take the Quiz</h2>
+    <form id="quizForm" onsubmit="return submitQuiz()">
+      <div class="question animate__animated animate__fadeInLeft animate__delay-1s">
+        <p><i class="bi bi-cpu text-success"></i> 1. Do you enjoy solving problems with technology?</p>
+        <label><input type="radio" name="q1" value="tech"> Yes</label>
+        <label><input type="radio" name="q1" value="nontech"> No</label>
+      </div>
+      <div class="question animate__animated animate__fadeInLeft animate__delay-2s">
+        <p><i class="bi bi-bar-chart-line-fill text-warning"></i> 2. Do you like managing finances & business tasks?</p>
+        <label><input type="radio" name="q2" value="commerce"> Yes</label>
+        <label><input type="radio" name="q2" value="other"> No</label>
+      </div>
+      <div class="question animate__animated animate__fadeInLeft animate__delay-3s">
+        <p><i class="bi bi-flask text-info"></i> 3. Do you love doing experiments or research?</p>
+        <label><input type="radio" name="q3" value="science"> Yes</label>
+        <label><input type="radio" name="q3" value="other"> No</label>
+      </div>
+      <div class="question animate__animated animate__fadeInLeft animate__delay-4s">
+        <p><i class="bi bi-palette-fill text-danger"></i> 4. Are you passionate about creativity & design?</p>
+        <label><input type="radio" name="q4" value="creative"> Yes</label>
+        <label><input type="radio" name="q4" value="other"> No</label>
+      </div>
+      <div class="question animate__animated animate__fadeInLeft animate__delay-5s">
+        <p><i class="bi bi-people-fill text-primary"></i> 5. Do you enjoy leading teams and managing people?</p>
+        <label><input type="radio" name="q5" value="management"> Yes</label>
+        <label><input type="radio" name="q5" value="other"> No</label>
+      </div>
+      <button type="submit" class="animate__animated animate__pulse animate__infinite">See Results <i class="bi bi-arrow-right-circle-fill"></i></button>
+    </form>
+  </div>
+
+<script>
+function submitQuiz() {
+  // Simple logic to find dominant stream
+  let scores = { tech:0, commerce:0, science:0, creative:0, management:0 };
+  const data = new FormData(document.getElementById("quizForm"));
+  for (let [q, ans] of data.entries()) {
+    if (scores[ans] !== undefined) scores[ans]++;
+  }
+  let best = Object.keys(scores).reduce((a,b)=> scores[a]>scores[b]?a:b);
+  localStorage.setItem("careerStream", best);
+  window.location.href = "career-step2.html";
+  return false;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Step 4 - Alumni Contacts</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h2 {
+      color: #a5b4fc;
+      margin-top: 32px;
+      margin-bottom: 10px;
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      animation: animate__fadeInDown 1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .alumni-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 32px;
+    }
+    .card {
+      background: rgba(44, 48, 58, 0.85);
+      border: 2.5px solid #6366f1;
+      border-radius: 24px;
+      padding: 22px 18px 18px 18px;
+      width: 300px;
+      text-align: left;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      color: #e0e7ff;
+      animation: animate__fadeInUp 1.2s;
+      transition: box-shadow 0.2s, border 0.2s;
+    }
+    .card h3 {
+      color: #a5b4fc;
+      margin-bottom: 8px;
+      font-size: 1.25em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .alumni {
+      margin-top: 10px;
+      padding: 10px 10px 10px 10px;
+      background: rgba(60, 64, 75, 0.85);
+      border-radius: 10px;
+      font-size: 15px;
+      color: #c7d0e0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      word-break: break-all;
+    }
+    .alumni i {
+      font-size: 1.2em;
+    }
+    button, a > button {
+      margin-top: 25px;
+      padding: 12px 32px;
+      background: linear-gradient(to right, #6366f1, #a5b4fc);
+      border: none;
+      color: #232526;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: bold;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+      transition: background 0.3s, color 0.3s;
+      animation: animate__pulse 2s infinite;
+    }
+    button:hover, a > button:hover {
+      background: linear-gradient(to right, #a5b4fc, #6366f1);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h2><i class="bi bi-people-fill text-primary animate__animated animate__tada animate__delay-1s"></i> Alumni Contacts</h2>
+  <p>Reach out to these alumni for real-world insights <i class="bi bi-mortarboard-fill text-warning"></i></p>
+
+  <div class="alumni-container">
+    <div class="card animate__animated animate__fadeInUp animate__delay-1s">
+      <h3><i class="bi bi-building text-info"></i> Anna University</h3>
+      <div class="alumni"><i class="bi bi-person-fill text-warning"></i> Priya – Software Engg @ TCS<br><i class="bi bi-envelope-fill text-primary"></i> priya.annauni@mail.com</div>
+      <div class="alumni"><i class="bi bi-person-fill text-success"></i> Karthik – Data Analyst @ Infosys<br><i class="bi bi-envelope-fill text-primary"></i> karthik.annauni@mail.com</div>
+    </div>
+    <div class="card animate__animated animate__fadeInUp animate__delay-2s">
+      <h3><i class="bi bi-building text-info"></i> PSG Tech</h3>
+      <div class="alumni"><i class="bi bi-person-fill text-success"></i> Arjun – DevOps Engg @ Zoho<br><i class="bi bi-envelope-fill text-primary"></i> arjun.psg@mail.com</div>
+      <div class="alumni"><i class="bi bi-person-fill text-warning"></i> Meera – Product Manager @ Amazon<br><i class="bi bi-envelope-fill text-primary"></i> meera.psg@mail.com</div>
+    </div>
+    <div class="card animate__animated animate__fadeInUp animate__delay-3s">
+      <h3><i class="bi bi-building text-info"></i> NIT Trichy</h3>
+      <div class="alumni"><i class="bi bi-person-fill text-success"></i> Rahul – Software Engg @ Microsoft<br><i class="bi bi-envelope-fill text-primary"></i> rahul.nitt@mail.com</div>
+      <div class="alumni"><i class="bi bi-person-fill text-warning"></i> Divya – Consultant @ Deloitte<br><i class="bi bi-envelope-fill text-primary"></i> divya.nitt@mail.com</div>
+    </div>
+  </div>
+
+  <a href="grade12-step5.html"><button class="animate__animated animate__pulse animate__infinite">Next <i class="bi bi-arrow-right-circle-fill"></i> Entrance Exams</button></a>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12th Guidance - Step 5</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+      margin: 0;
+    }
+    h2 {
+      color: #a5b4fc;
+      margin-top: 32px;
+      margin-bottom: 10px;
+      font-size: 2em;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      animation: animate__fadeInDown 1s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .section {
+      margin-bottom: 24px;
+      padding: 22px 18px 18px 18px;
+      background: rgba(44, 48, 58, 0.85);
+      border-radius: 24px;
+      border: 2.5px solid #6366f1;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      color: #e0e7ff;
+      animation: animate__fadeInUp 1.2s;
+      transition: box-shadow 0.2s, border 0.2s;
+    }
+    .section h3 {
+      color: #a5b4fc;
+      font-size: 1.25em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .section ul {
+      color: #c7d0e0;
+      font-size: 1.08em;
+      margin-bottom: 0;
+    }
+    .section p {
+      color: #c7d0e0;
+      margin-bottom: 0;
+    }
+    button {
+      background: linear-gradient(to right, #6366f1, #a5b4fc);
+      color: #232526;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 1.1em;
+      font-weight: bold;
+      padding: 12px 32px;
+      margin: 18px auto 0 auto;
+      display: block;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.12);
+      transition: background 0.3s, color 0.3s;
+      animation: animate__pulse 2s infinite;
+    }
+    button:hover {
+      background: linear-gradient(to right, #a5b4fc, #6366f1);
+      color: #fff;
+    }
+    #smsStatus {
+      margin-top: 12px;
+      font-weight: bold;
+      color: #22c55e;
+    }
+  </style>
+</head>
+<body>
+  <h2><i class="bi bi-calendar-event-fill text-success animate__animated animate__tada animate__delay-1s"></i> Step 5: Entrance Exams & Counseling</h2>
+
+  <div class="section animate__animated animate__fadeInUp animate__delay-1s">
+    <h3><i class="bi bi-journal-text text-info"></i> Important Entrance Exams</h3>
+    <ul>
+      <li>JEE Main – April 2025</li>
+      <li>NEET – May 2025</li>
+      <li>TNEA (Tamil Nadu Engineering Admissions) – June 2025</li>
+      <li>CLAT (for Commerce + Law) – Dec 2025</li>
+    </ul>
+  </div>
+
+  <div class="section animate__animated animate__fadeInUp animate__delay-2s">
+    <h3><i class="bi bi-clipboard-check-fill text-warning"></i> Counseling Details</h3>
+    <p>Counseling for Tamil Nadu Engineering Admissions starts in <b>July 2025</b>.<br>
+       Please keep your documents ready (Marksheet, Transfer Certificate, Community Certificate, etc.).</p>
+  </div>
+
+  <div class="section animate__animated animate__fadeInUp animate__delay-3s">
+    <h3><i class="bi bi-chat-dots-fill text-primary"></i> SMS Reminder</h3>
+    <p>Click below to simulate SMS reminder for exam & counseling dates:</p>
+    <button onclick="sendSMS()" class="animate__animated animate__pulse animate__infinite">Send SMS Reminder <i class="bi bi-send-fill"></i></button>
+    <p id="smsStatus"></p>
+  </div>
+
+  <script>
+    function sendSMS() {
+      document.getElementById("smsStatus").innerText =
+        "📩 Reminder Sent! You'll get alerts for exam & counseling deadlines.";
+    }
+  </script>
+</body>
+</html>

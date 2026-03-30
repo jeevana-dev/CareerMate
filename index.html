@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerMate - Home</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #232526 0%, #414345 100%);
+      color: #f3f6fa;
+      min-height: 100vh;
+    }
+    header {
+      background: rgba(40, 44, 52, 0.85);
+      color: #fff;
+      padding: 28px 20px 20px 20px;
+      text-align: center;
+  position: static;
+      z-index: 100;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+      border-bottom: 1.5px solid rgba(255,255,255,0.08);
+      backdrop-filter: blur(8px);
+      animation: headerPop 1.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    @keyframes headerPop {
+      0% { transform: scale(0.8) translateY(-40px); opacity: 0; }
+      60% { transform: scale(1.05) translateY(10px); opacity: 1; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    nav {
+      margin-top: 10px;
+    }
+    nav a {
+      color: #a5b4fc;
+      margin: 0 16px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.08em;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #a5b4fc, #6366f1);
+      transition: width 0.3s;
+      margin: 0 auto;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .hero {
+      padding: 90px 20px 60px 20px;
+      text-align: center;
+      background: rgba(40,44,52,0.7);
+      border-radius: 32px;
+      margin: 40px auto 0 auto;
+      max-width: 900px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      backdrop-filter: blur(6px);
+    }
+    .hero h2 {
+      font-size: 2.7em;
+      margin-bottom: 18px;
+      background: linear-gradient(90deg, #a5b4fc, #6366f1);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .hero p {
+      font-size: 1.22em;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #c7d0e0;
+    }
+    .options {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 60px auto;
+      max-width: 1100px;
+    }
+    .card {
+      background: rgba(44, 48, 58, 0.85);
+      width: 290px;
+      border-radius: 28px;
+      padding: 34px 22px 28px 22px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1.5px solid rgba(255,255,255,0.07);
+      backdrop-filter: blur(4px);
+    }
+    .card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 16px 32px rgba(99, 102, 241, 0.18);
+      border-color: #6366f1;
+    }
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.32em;
+      color: #a5b4fc;
+      font-weight: 700;
+    }
+    .card p {
+      font-size: 1em;
+      color: #c7d0e0;
+      margin-bottom: 15px;
+    }
+    .card a {
+      display: inline-block;
+      padding: 9px 20px;
+      background: linear-gradient(to right, #6366f1, #a5b4fc);
+      color: #232526;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 1em;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+      margin-top: 8px;
+    }
+    .card a:hover {
+      background: linear-gradient(to right, #a5b4fc, #6366f1);
+      color: #fff;
+    }
+    footer {
+      background: rgba(40,44,52,0.95);
+      color: #a5b4fc;
+      text-align: center;
+      padding: 18px;
+      margin-top: 70px;
+      border-top: 1.5px solid rgba(255,255,255,0.08);
+      font-size: 1.08em;
+      letter-spacing: 0.5px;
+      box-shadow: 0 -2px 16px rgba(0,0,0,0.12);
+    }
+  </style>
+</head>
+<body>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1 class="animate__animated animate__fadeInDown">CareerMate</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="career.html">Career Guidance</a>
+      <a href="colleges.html">Colleges</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="about.html">About</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero animate__animated animate__fadeInUp animate__slow">
+    <div class="mb-4">
+      <i class="bi bi-stars display-2 text-primary animate__animated animate__tada animate__delay-1s"></i>
+    </div>
+    <h2>Shape Your Future with CareerMate</h2>
+    <p>Helping students and professionals choose the right path with guidance, college insights, and job opportunities.</p>
+  </section>
+
+  <!-- Options Section -->
+  <section class="options">
+    <div class="card animate__animated animate__zoomIn animate__delay-1s">
+      <div class="mb-3">
+        <i class="bi bi-journal-bookmark-fill display-4 text-info animate__animated animate__bounceIn"></i>
+      </div>
+      <h3>10th Grade</h3>
+      <p>Discover streams, take quizzes, and explore courses for your future.</p>
+      <a href="grade10.html" class="animate__animated animate__pulse animate__infinite">Explore →</a>
+    </div>
+    <div class="card animate__animated animate__zoomIn animate__delay-2s">
+      <div class="mb-3">
+        <i class="bi bi-mortarboard-fill display-4 text-warning animate__animated animate__bounceIn"></i>
+      </div>
+      <h3>12th Grade</h3>
+      <p>Find colleges, scholarships, and compare opportunities based on your cut-off.</p>
+      <a href="grade12-step1.html" class="animate__animated animate__pulse animate__infinite">12th Guidance</a>
+    </div>
+    <div class="card animate__animated animate__zoomIn animate__delay-3s">
+      <div class="mb-3">
+        <i class="bi bi-briefcase-fill display-4 text-success animate__animated animate__bounceIn"></i>
+      </div>
+      <h3>Career / Jobs</h3>
+      <p>Assess your skills, discover jobs, and improve with resources.</p>
+      <a href="career-step1.html" class="animate__animated animate__pulse animate__infinite">Explore →</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="animate__animated animate__fadeInUp animate__delay-4s">
+    <p>&copy; 2025 CareerMate Team | SIH Demo</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src='https://www.noupe.com/embed/01998006d92273a9b64971b54ccf3ed21528.js'></script>
+</body>
+</html>
