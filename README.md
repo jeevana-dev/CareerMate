@@ -5,6 +5,12 @@ CareerMate is a web-based career guidance platform designed to help students mak
 
 ---
 
+## 🌐 Live Demo
+
+👉 https://jeevana-dev.github.io/CareerMate/
+
+---
+
 ## 🚀 Features
 
 - 🤖 AI Assistant to answer career-related questions  
@@ -38,12 +44,6 @@ CareerMate is a web-based career guidance platform designed to help students mak
 ## 🏆 Recognition
 
 - Selected for **Smart India Hackathon (SIH) – College Level**
-
----
-
-## 🌐 Live Demo
-
-👉 https://jeevana-dev.github.io/CareerMate/
 
 ---
 
